@@ -34,7 +34,11 @@ class RobertaForStsRegression(RobertaPreTrainedModel):
 
         self.cls_fc_layer = FCLayer(config.hidden_size, config.hidden_size, 0.1)
         self.sentence_fc_layer = FCLayer(config.hidden_size, config.hidden_size, 0.1)
-        self.dense = FCLayer(config.hidden_size * 2, config.hidden_size, 0.1)
+        self.sentence_fc_layer2 = FCLayer(config.hidden_size, config.hidden_size, 0.1)
+        self.sentence_fc_layer3 = FCLayer(config.hidden_size, config.hidden_size, 0.1)
+        self.embedding_vectors=FCLayer(config.hidden_size, 1, 0.1)
+        self.dense = FCLayer(config.hidden_size * 6, config.hidden_size , 0.1)
+        self.dense2 = FCLayer(config.hidden_size , config.hidden_size, 0.1)
         self.label_classifier = FCLayer(
             config.hidden_size,
             config.num_labels,
@@ -70,7 +74,7 @@ class RobertaForStsRegression(RobertaPreTrainedModel):
         # ctx_mask=None,
     ):
         outputs = self.roberta(
-            input_ids, attention_mask=attention_mask, token_type_ids=None
+            input_ids, attention_mask=attention_mask, token_type_ids=None, output_hidden_states=True
         )
 
         sequence_output = outputs[0]
@@ -79,16 +83,36 @@ class RobertaForStsRegression(RobertaPreTrainedModel):
         s2_h = self.entity_average(sequence_output, s2_mask)
         s1_h = self.sentence_fc_layer(s1_h)
         s2_h = self.sentence_fc_layer(s2_h)
+        
+        #roberta 모델의 2번째 layer의 hidden_states의 문장별 평균후 연산
+        sequence_output_sec_layer=outputs['hidden_states'][2]
+        ss1_h = self.entity_average(sequence_output_sec_layer, s1_mask)
+        ss2_h = self.entity_average(sequence_output_sec_layer, s2_mask)
+        ss1_h = self.sentence_fc_layer2(ss1_h)
+        ss2_h = self.sentence_fc_layer2(ss2_h)
+
+        #roberta 모델의 3번째 layer의 hidden_states의 문장별 평균후 연산
+        sequence_output_sec_layer2=outputs['hidden_states'][3]
+        sss1_h = self.entity_average(sequence_output_sec_layer2, s1_mask)
+        sss2_h = self.entity_average(sequence_output_sec_layer2, s2_mask)
+        sss1_h = self.sentence_fc_layer3(sss1_h)
+        sss2_h = self.sentence_fc_layer3(sss2_h)
+
+        #emb_vec=self.embedding_vectors(outputs['hidden_states'][0])
+        #dump_shape=(outputs['hidden_states'][0].shape[0],outputs['hidden_states'][0].shape[2]-outputs['hidden_states'][0].shape[1])
+        #dump=torch.zeros(dump_shape).to('cuda')
+        #emb_vec=torch.cat([emb_vec.squeeze(2),dump],dim=1)
 
         # Concat -> fc_layer
         # concat_h = torch.cat([pooled_output, s1_h, s2_h], dim=-1)
-        concat_h = torch.cat([s1_h, s2_h], dim=-1)
-        concat_h = self.dense(concat_h)
+        concat_h = torch.cat([s1_h, s2_h,ss1_h, ss2_h,sss1_h, sss2_h], dim=-1)# last layer, 2layer, 3layer의 각 문장 정보를 concat
+        concat_h = self.dense(concat_h) #각 문장 정보의 특징 연산
+        concat_h = self.dense2(concat_h) #각 문장 정보의 특징 연산2
         logits = self.label_classifier(concat_h)
         # print(outputs)
 
         # add hidden states and attention if they are here
-        outputs = (logits,) + outputs[2:]
+        outputs = (logits,) + ()
         # print(outputs)
         # Softmax
         if labels is not None:

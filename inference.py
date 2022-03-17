@@ -18,13 +18,15 @@ from model import RobertaForStsRegression
 
 def load_model_and_type(model_dir, model_tar_file):
     """load model and model type from tar file pre-fetched from s3
+
     Args:
         model_dir: str: the directory of tar file
         model_tar_path: str: the name of tar file
     """
-    tarpath = os.path.join(model_dir, model_tar_file)
-    tar = tarfile.open(tarpath, "r:gz")
-    tar.extractall(path=model_dir)
+    # klue data set 압축해제 코드 제거
+    #tarpath = os.path.join(model_dir, model_tar_file)
+    #tar = tarfile.open(tarpath, "r:gz")
+    #tar.extractall(path=model_dir)
     model = RobertaForStsRegression.from_pretrained(model_dir)
     config = AutoConfig.from_pretrained(model_dir)
     return model, config.model_type
