@@ -92,7 +92,6 @@ if __name__ == "__main__":
     # eval_arg
     parser.add_argument("--evaluation_strategy", type=str, default="steps")
     parser.add_argument("--save_steps", type=int, default=250)
-    parser.add_argument("--eval_steps", type=int, default=250)
     parser.add_argument("--save_total_limit", type=int, default=2)
 
     # wandb_log
