@@ -5,7 +5,7 @@
     * <font size=4> 두 개의 한국어 분장을 입력받아 두 문장의 의미적 유사도를 출력하는 모델 생성</font>
 
 # 과제 제출물
-* <font size=5>Assignment_03_STS.ipynb</font>
+* <font size=5>기업과제3_6팀.ipynb</font>
 
     <font size=4>KLUE STS data를 이용한 모델 학습 및 검증</font>  
     <font size=4>데이터 전처리를 통한 모델 성능 비교 및 최종 모델 선정</font>
@@ -23,7 +23,7 @@
 # Summary
 
 
-|model| F1-score  | pearsonr |
+|model| pearsonr | F1-score |
 |---|-------|--------:|
-|roberta-base| 0.859| 0.894 |  
-|custom| 0.864| 0.898 |
+|roberta-base| 0.894| 0.859 |  
+|custom| 0.902| 0.870 |
