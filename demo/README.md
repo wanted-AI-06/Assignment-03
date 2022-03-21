@@ -1,4 +1,4 @@
-# “초”경량 재활용쓰레기 이미지 분류기
+# 두 문장의 의미 유사도(STS) 측정 모델
 
 [KLUE STS dev](https://github.com/wanted-AI-06/Assignment-03)의 Best model을 이용한 프로토타이핑
 
