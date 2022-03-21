@@ -133,3 +133,4 @@ colab_code
 .idea
 wandb
 data
+.bin
