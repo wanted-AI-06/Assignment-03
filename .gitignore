@@ -133,4 +133,5 @@ colab_code
 .idea
 wandb
 data
-.bin
+demo/*.bin
+
