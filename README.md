@@ -23,6 +23,7 @@
 # Summary
 
 
-| F1-score  | pearsonr |
-|-------|--------:|
-| 0.87| 0.90 |  
+|model| F1-score  | pearsonr |
+|---|-------|--------:|
+|roberta-base| 0.859| 0.894 |  
+|custom| 0.864| 0.898 |
