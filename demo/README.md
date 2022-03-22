@@ -12,7 +12,7 @@ demo
 ├─dataset.py         # dataset code
 └─pytorch_model.bin  # best model
 ```
-- 실행에 필수적인 파일만 나열
+- 실행에 필수적인 파일만 표기
 - best model 다운로드 : [pytorch_model.bin](https://drive.google.com/file/d/1Y9GFVzcmTH0Zas_ekt0PNz4xToqpvBnj/view?usp=sharing)
 - best model 다운로드 후 demo 폴더에 위치해야 실행 가능
 
