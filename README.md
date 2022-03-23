@@ -20,6 +20,11 @@
     dev_set_score.csv 생성 과정 출력  
     dev_set_score의 예측값과 실제값 F1 score 와 Pearson's R 결과물 출력
 
+* <font size=5>demo</font>  
+
+    [REST API 서버 코드](https://github.com/wanted-AI-06/Assignment-03/tree/main/demo)
+
+
 # Summary
 
 
