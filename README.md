@@ -1,6 +1,6 @@
 # Assignment-03
 
-**※ 과제의 출력물이 깃허브 상에서 보이지 않습니다. 다운받으셔서 확인할 경우 출력결과를 확인하실 수 있습니다.**
+**※ 과제의 출력물이 깃허브 상에서 보이지 않습니다. 파일을 다운로드하면 출력결과를 확인하실 수 있습니다.**
 
 ## NLU - 문장 유사도 계산 (STS)
 과제 목표
@@ -31,8 +31,6 @@
 **demo** 
 - 모델 프로토타이핑을 FastAPI, Streamlit로 구현 
 - [FastAPI, Streamlit 코드](https://github.com/wanted-AI-06/Assignment-03/tree/main/demo)
-
-
 
 
 ## 모델 성능
