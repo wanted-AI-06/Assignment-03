@@ -10,25 +10,25 @@
 
 ## 과제 산출물 설명
 
-**기업과제3_6팀.ipynb**
+**[기업과제3_6팀.ipynb](기업과제3_6팀.ipynb)**
 - KLUE STS data를 이용한 모델 학습 및 검증
 - 데이터 전처리를 통한 모델 성능 비교 및 최종 모델 선정
 
-**dev_set_score.csv** 
+**[dev_set_score.csv](dev_set_score.csv)** 
 - KLUE STS 데이터셋 컬렘에 predict real label, predict binary labe 추가한 csv 파일
 ```
   - predict real label : 모델이 추론한 실수 레이블 [float]
   - predict binary label : 모델이 추론한 True(1)/False(0) 레이블 [int]
 ```
 
-**기업과제3_6팀_dev_set_score.ipynb**
+**[기업과제3_6팀_dev_set_score.ipynb](./기업과제3_6팀_dev_set_score.ipynb)**
 - dev_set_score.csv 생성 과정 출력  
 - dev_set_score의 예측값과 실제값 F1 score 와 Pearson's R 결과물 출력
 
-**code** 
+**[code](./code/)** 
 - KLUE/RoBERTa Base STS Regression model 코드 
 
-**demo** 
+**[demo](./demo/)** 
 - 모델 프로토타이핑을 FastAPI, Streamlit로 구현 
 - [FastAPI, Streamlit 코드](https://github.com/wanted-AI-06/Assignment-03/tree/main/demo)
 
