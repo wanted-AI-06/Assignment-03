@@ -15,7 +15,7 @@
 - 데이터 전처리를 통한 모델 성능 비교 및 최종 모델 선정
 
 **[dev_set_score.csv](dev_set_score.csv)** 
-- KLUE STS 데이터셋 컬렘에 predict real label, predict binary labe 추가한 csv 파일
+- KLUE STS 데이터셋 컬럼에 predict real label, predict binary labe 추가한 csv 파일
 ```
   - predict real label : 모델이 추론한 실수 레이블 [float]
   - predict binary label : 모델이 추론한 True(1)/False(0) 레이블 [int]
