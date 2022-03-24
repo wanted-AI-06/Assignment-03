@@ -35,9 +35,11 @@
 
 ## 모델 성능
 
-최고 성능 모델 요약
+KLUE/RoBERTa Base STS Regression 모델
 - [최고 성능 모델 다운로드](https://drive.google.com/file/d/1Y9GFVzcmTH0Zas_ekt0PNz4xToqpvBnj/view?usp=sharing)
 
+
+모델 성능 비교
 |model| pearsonr | F1-score |
 |---|-------|--------:|
 |roberta-base| 0.894| 0.859 |  
