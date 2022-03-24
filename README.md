@@ -10,8 +10,6 @@
 
 ## 과제 산출물 설명
 
-※ 과제의 출력물이 깃허브 상에서 보이지 않습니다. 다운받으셔서 확인할 경우 출력결과를 확인하실 수 있습니다.
-
 **기업과제3_6팀.ipynb**
 - KLUE STS data를 이용한 모델 학습 및 검증
 - 데이터 전처리를 통한 모델 성능 비교 및 최종 모델 선정
@@ -27,10 +25,15 @@
 - dev_set_score.csv 생성 과정 출력  
 - dev_set_score의 예측값과 실제값 F1 score 와 Pearson's R 결과물 출력
 
+**code** 
+- KLUE/RoBERTa Base STS Regression model 코드 
+
 **demo** 
 - 모델 프로토타이핑을 FastAPI, Streamlit로 구현 
 - [FastAPI, Streamlit 코드](https://github.com/wanted-AI-06/Assignment-03/tree/main/demo)
-    
+
+
+
 
 ## 모델 성능
 
